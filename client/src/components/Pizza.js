@@ -6,6 +6,8 @@ import { addToCart } from "../actions/cartActions";
 
 
 
+
+
 export default function Pizza({ pizza }) {
   const [quantity, setquantity] = useState(1);
   const [varient, setvarient] = useState("small");

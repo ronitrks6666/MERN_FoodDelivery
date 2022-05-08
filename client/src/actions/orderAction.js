@@ -28,3 +28,25 @@ export const placeOrder = (token,subtotal)=>async(dispatch,getState)=>{
     })
     }
 }
+
+export const getOrdersDetail = () =>async(dispatch,getState)=>{
+    dispatch({
+        type:'GET_ORDERS_REQUEST',
+    })
+    const currentUser = getState().loginUserReducer.currentUser
+    try {
+        const response = await axios.get(`api/orders/myorders/${currentUser.email}`)
+        console.log(response)
+        console.log(response.data)
+        dispatch({
+            type:'GET_ORDERS_SUCCESS',
+            payload:response.data.orders
+        })
+    } catch (error) {
+        dispatch({
+            type:'GET_ORDERS_FAILED',
+            payload:error
+        })
+    }
+
+}

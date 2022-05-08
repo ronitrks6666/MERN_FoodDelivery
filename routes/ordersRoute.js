@@ -55,6 +55,13 @@ router.post('/placeorder',async(req,res)=>{
     }
 })
 
+router.get('/myorders/:email',async(req,res)=>{
+    const paramemail = req.params
+    const email = paramemail.email
+    const orders = await Order.find({email})
+    console.log(orders)
+    res.send({orders})
+})
 
 
 
