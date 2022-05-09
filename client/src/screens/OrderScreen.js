@@ -16,7 +16,6 @@ export default function OrderScreen() {
   }, []);
   return (
     <div>
-        hello
       <div className="row">
         {loading ? (
           <Loading />
@@ -25,10 +24,8 @@ export default function OrderScreen() {
         ) : (
           orders.map((order) => {
             return (
-              <div key={order._id} className="col-md-4">
-                <h6>
-                  <span class="badge bg-secondary">HOT</span>
-                </h6>
+              <div key={order._id} className=" m-2 flex">
+               
                 <div className="m">
                   <Orders order={order} />
                 </div>
